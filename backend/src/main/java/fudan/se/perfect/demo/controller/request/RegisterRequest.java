@@ -1,15 +1,10 @@
-package fudan.se.perfect.demo.domain;
+package fudan.se.perfect.demo.controller.request;
 
-public class User {
+public class RegisterRequest {
     private String username;
     private String password;
+    private String repassword;
     private String email;
-
-    public User(String username, String password, String email){
-        this.email= email;
-        this.password = password;
-        this.username = username;
-    }
 
     public String getUsername() {
         return username;
@@ -25,6 +20,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRepassword() {
+        return repassword;
+    }
+
+    public void setRepassword(String repassword) {
+        this.repassword = repassword;
     }
 
     public String getEmail() {
