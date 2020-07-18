@@ -1,7 +1,7 @@
 <template>
   <div id="base-auth">
-    <div id="goToRegister">
-      <div class="m-auto" id="arrow_down">
+    <div id="goToRegister" class="link animated slideInUp">
+      <div class="m-auto arrow_down">
         <div class="chevron"></div>
         <div class="chevron"></div>
         <div class="chevron"></div>
@@ -12,90 +12,69 @@
         <span style="font-size:14px">还没有账户？点击注册</span>
       </a>
     </div>
-    <div class="container">
-      <br />
-      <div class="row" id="login">
-        <div class="col-1"></div>
-        <div class="col-5 animated slideInLeft">
-          <div
-            class="card text-white mb-3"
-            style="max-width: 22rem ; background:transparent; border:none"
-          >
-            <div class="card-body">
-              <h5 class="card-title">为什么加入Daddy</h5>
-              <span class="card-text">
-                In the Age of Ancients,
-                <br />The world was unformed,shrouded by fog.
-                <br />A land of grey crags,archtrees,and everlasting dragons
-                <br />But then there was Fire.
-                <br />And with Fire came Disparity.
-              </span>
-              <br />
-              <br />
-              <img src="../../assets/login.jpg" class="d-block w-100" alt="..." />
-            </div>
-          </div>
-        </div>
-        <div class="col-6 animated slideInRight">
-          <div class="form-container">
-            <form>
-              <h2 style="font-size:20px">登录</h2>
-              <br />
-              <div class="form-group">
-                <span for="username">用户名称</span>
-                <br />
-                <input
-                  type="text"
-                  class="text-input"
-                  id="username"
-                  placeholder="enter your name here"
-                />
-              </div>
-              <div class="form-group">
-                <span for="username">密码</span>
-                <br />
-                <input
-                  type="text"
-                  class="text-input"
-                  id="username"
-                  placeholder="enter your name here"
-                />
-              </div>
-            </form>
-          </div>
-        </div>
+    <div id="goToLogin" class="d-see link">
+      <div class="m-auto arrow_down">
+        <div class="chevron"></div>
+        <div class="chevron"></div>
+        <div class="chevron"></div>
       </div>
-      <div class="row" id="register"></div>
+      <br />
+      <br />
+      <a href="#" @click="switchToLogin()">
+        <span style="font-size:14px">还没有账户？点击注册</span>
+      </a>
+    </div>
+    <div class="container">
+      <login id="login" class="animated slideInDown" />
+      <register id="register" class="d-see" />
     </div>
   </div>
 </template>
 
 <script>
+import login from "./login";
+import register from "./register";
+
 export default {
   name: "Auth",
-  data(){
-      return{
-          timer1:""
-      }
+  components: {
+    login: login,
+    register: register
   },
-  methods:{
-      switchToRegister(){
-          console.log("?????");
-          var aim = document.getElementById("login");
-          var target = document.getElementById("register");
-          var link = document.getElementById("goToRegister");
-          aim.className="row animated slideOutUp"
-          link.className="animated slideOutDown"
-          this.timer1 = setTimeout(
-              ()=>{
-                  target.className="row animated slideInUp";
-              },1000
-          )
-
-      },
-      switchToLogin(){
-
-      }
+  data() {
+    return {
+      timer1: ""
+    };
+  },
+  methods: {
+    switchToRegister() {
+      var aim = document.getElementById("login");
+      var target = document.getElementById("register");
+      var link = document.getElementById("goToRegister");
+      var link2 = document.getElementById("goToLogin");
+      aim.className = "animated slideOutUp";
+      link.className = "animated slideOutDown link";
+      clearTimeout(this.timer1);
+      this.timer1 = setTimeout(() => {
+        aim.className = "d-see";
+        target.className = "animated slideInDown";
+        link2.className = "animated slideInUp link";
+      }, 1000);
+    },
+    switchToLogin() {
+      var aim = document.getElementById("login");
+      var target = document.getElementById("register");
+      var link = document.getElementById("goToRegister");
+      var link2 = document.getElementById("goToLogin");
+      target.className = "animated slideOutUp";
+      link2.className = "animated slideOutDown link";
+      clearTimeout(this.timer1);
+      this.timer1 = setTimeout(() => {
+        target.className = "d-see";
+        aim.className = "animated slideInDown";
+        link.className = "animated slideInUp link";
+      }, 1000);
+    }
   }
 };
 </script>
@@ -170,14 +149,14 @@ export default {
   background: transparent;
 }
 
-#goToRegister {
+.link {
   position: fixed;
   bottom: 10px;
   width: 100%;
   text-align: center;
 }
 
-#arrow_down {
+.arrow_down {
   display: block;
   margin: 0 auto;
   position: relative;

@@ -1,13 +1,13 @@
-package com.example.spingboot;
+package fudan.se.perfect.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpingbootApplication {
+public class DemoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpingbootApplication.class, args);
+        SpringApplication.run(DemoApplication.class, args);
     }
 
 }

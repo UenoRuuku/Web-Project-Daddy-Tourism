@@ -1,10 +1,10 @@
-package com.example.spingboot;
+package fudan.se.perfect.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpingbootApplicationTests {
+class DemoApplicationTests {
 
     @Test
     void contextLoads() {

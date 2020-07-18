@@ -1,8 +1,8 @@
 <template>
   <div id="base-home">
-    <div class="animated fadeIn container">
+    <div class="container">
       <div class="row">
-        <div class="col-4">
+        <div class="col-4 animated slideInLeft">
           <br />
           <h2>最新上传</h2>
           <br />
@@ -19,7 +19,7 @@
           </div>
         </div>
         <div class="col-1"></div>
-        <div class="col-7">
+        <div class="col-7 animated slideInRight">
           <br />
           <br />
           <div id="home-nav" class="container">

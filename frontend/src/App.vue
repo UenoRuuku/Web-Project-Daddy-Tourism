@@ -49,6 +49,9 @@ export default {
 </script>
 
 <style>
+.d-see{
+  display: none;
+}
 body {
   background-color: #343a40 !important;
 }
